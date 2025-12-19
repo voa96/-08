@@ -5,16 +5,19 @@ const CloseModalBtn = document.querySelector(".close_modal_win")
 const ModalWinMain = document.querySelector(".modal_win_wrapper")
 const ModalWin = document.querySelector(".modal_win")
 
+const recPrice = document.querySelectorAll(".rec")
+const minPrice = document.querySelectorAll(".min")
+
 recommended_equipment.addEventListener("click",switchmax)
 min_equipment.addEventListener("click",switchmin)
-
-
+ 
 
 function switchmin(){
     setTimeout(() => {
         document.querySelector(".img_choice_min").style.opacity = "1"
         document.querySelector(".img_choice_rec").style.opacity = "0"
     },100)
+    
 }
 function switchmax(){
     setTimeout(() => {
@@ -33,8 +36,8 @@ function CloseModal(){
     setTimeout(() => {
         ModalWin.style.display = "none"
     }, 200);
+    document.documentElement.style.overflow = 'auto'
 }
-
 
 
 
@@ -50,13 +53,20 @@ function createSlider(gameBlock) {
         slides: gameBlock.querySelectorAll('.game_screen_slaider img'),
         prevBtn: gameBlock.querySelector('.prev_btn'),
         nextBtn: gameBlock.querySelector('.next_btn'),
-        openModal: gameBlock.querySelector('.open_modal'),
+        openModalBtn: gameBlock.querySelector('.open_modal'),
         currentSlide: 0,
         autoPlayInterval: null,
         isAutoPlaying: true
     };
     
-
+    function openModalWin(){
+        ModalWin.style.display = 'block'
+        document.documentElement.style.overflow = 'hidden'
+        setTimeout(() => {
+            ModalWinMain.style.scale = '1'
+            ModalWin.style.opacity = '1'
+        },20);
+    }
 
     // Функции для этого слайдера
     function nextSlide() {
@@ -99,6 +109,8 @@ function createSlider(gameBlock) {
     sliderData.prevBtn.addEventListener('click', prevSlide);
     sliderData.nextBtn.addEventListener('click', nextSlide);
     
+    sliderData.openModalBtn.addEventListener('click', openModalWin);
+
     // Пауза при наведении
     sliderData.container.addEventListener('mouseenter', () => {
         if (sliderData.isAutoPlaying) {

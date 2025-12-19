@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
+
 body{
     background-color: #0e141d;
     height: 200vh;
@@ -35,6 +36,8 @@ main{
     bottom: 0;
     transition: 0.2s;
     z-index: 5;
+    /* display: none; */
+    /* opacity: 0.1; */
 }
 .modal_win_main{
     display: flex;
@@ -48,11 +51,12 @@ main{
     height: 700px;
     background-color: #193255;
     position: fixed;
-    transform: translateY(60%);
+    transform: translateY(65%);
     border-radius: 16px;
     box-shadow: 0 0 70PX 2px white;
     border: solid 2px #010d1d;
     transition: 0.4s;
+    /* scale: 0.1; */
 }
 .close_modal_win{
     padding:10px 20px;
@@ -108,6 +112,13 @@ main{
     gap: 10px;
     cursor: pointer;
 }
+.content_table{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 40px;
+    margin-left: 40px;
+}
 .min_equipment img{
     width: 15px;
 }
@@ -133,12 +144,44 @@ main{
 }
 .content_text{
     position: absolute;
-    right: 10px;
-    bottom: 10px;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 40px;
+    margin-right: 60px;
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    font-size: 1.4rem;
+    color: white;
 }
 .table{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: 1fr 4fr 8fr;
+    column-gap: 10px;
+    row-gap: 16px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.table img{
+    width: 30px;
+
+}
+.name_accessories{
+    color: white;
+    text-align: left;
+    border-right: solid gray 1px;
+    padding-right: 10px;
+}
+.min{
+    display: none;
+    color: white;
+    text-align: left;
+}
+.rec{
+    display: block;
+    color: white;
+     text-align: left;
 }
 .content_text{
     position: absolute;
@@ -151,6 +194,7 @@ main{
     display: grid;
     grid-template-columns: repeat(1,1fr);
     padding: 10px 20px;
+    gap: 20px;
 }
 .dame_list_wrapper{
     display: grid;
@@ -178,6 +222,7 @@ main{
     text-align: center;
     color:  white;
     font-size: 2rem;
+    
 }
 .nav-btn{
     width: 35px;
